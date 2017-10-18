@@ -1,0 +1,18 @@
+----------------------------------------------
+----------------- training -------------------
+----------------------------------------------
+> library(readr)
+> training_labeled <- read_csv("C:/Users/stuparm/Desktop/master/missing-values-v2/dataset/diabetes/training/training_labeled.csv")
+> fit <- lm(y~., training_labeled)
+> summary(fit)
+
+
+
+----------------------------------------------
+-------------------- test --------------------
+----------------------------------------------
+> library(readr)
+> test_labeled <- read_csv("C:/Users/stuparm/Desktop/master/missing-values-v2/dataset/diabetes/test/test_labeled.csv")
+> predictions <- predict(fit,test_labeled)
+> mse <- mean((test_labeled$y - predictions)^2)
+> print(mse)

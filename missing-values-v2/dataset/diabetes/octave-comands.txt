@@ -1,0 +1,2 @@
+full = dlmread('../dataset/diabetes/full.csv');
+csvwrite('../dataset/diabetes/training/training.csv',training);
