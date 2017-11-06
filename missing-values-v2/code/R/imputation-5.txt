@@ -1,0 +1,3 @@
+> XY_05_model <- mice(XY_05, method = "norm.predict", m=5)
+> XY_05_imp <- complete(XY_05_model)
+> densityplot(XY_05_model)

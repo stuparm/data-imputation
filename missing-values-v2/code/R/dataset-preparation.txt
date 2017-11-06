@@ -1,0 +1,6 @@
+XY <- read_csv("XY.csv")
+X <- XY[,c(1:10)]
+Y <- XY[,c(11)]
+X_05 <- prodNA(X, noNA = 0.05)
+XY_05 <- cbind(X_05,Y)
+write.csv(XY_05, file="XY_05.csv")
