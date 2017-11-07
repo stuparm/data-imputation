@@ -1,0 +1,47 @@
+errors_s <- data.frame(MSE_s = c(mse_5_s, mse_10_s, mse_15_s, mse_20_s, mse_25_s, mse_30_s),
+                     RMSE_s = c(rmse_5_s, rmse_10_s, rmse_15_s, rmse_20_s, rmse_25_s, rmse_30_s),
+                     RMSE_P_S = c(rmse_p_5_s, rmse_p_10_s, rmse_p_15_s, rmse_p_20_s, rmse_p_25_s, rmse_p_30_s))
+
+
+   MSE       RMSE	
+1  43.54469  6.598840
+2  98.69796  9.934685
+3 114.46057 10.698625
+4  75.41079  8.683939
+5 135.01356 11.619534
+6 127.64730 11.298111
+
+        mse      rmse   p_rmse	     are 
+1  43.54469  6.598840 40.93458	0.109273	5
+2  98.69796  9.934685 40.78019	0.111054	10
+3 114.46057 10.698625 41.76785	0.107427	15
+4  75.41079  8.683939 41.84145	0.112437	20
+5 135.01356 11.619534 54.97207	0.117311	25
+6 127.64730 11.298111 95.63886	0.112443	30
+
+errors <- data.frame(x1 = c(mse_5_s, mse_10_s, mse_15_s, mse_20_s, mse_25_s, mse_30_s),
+                     x2 = c(rmse_5_s, rmse_10_s, rmse_15_s, rmse_20_s, rmse_25_s, rmse_30_s),
+                     x3 = c(p_rmse_5, p_rmse_10, p_rmse_15, p_rmse_20, p_rmse_25, p_rmse_30))
+
+
+
+errors_f <- data.frame(MSE = c(MSE_5_f, MSE_10_f, MSE_15_f, MSE_20_f, MSE_25_f, MSE_30_f),
+                     RMSE = c(RMSE_5_f, RMSE_10_f, RMSE_15_f, RMSE_20_f, RMSE_25_f, RMSE_30_f),
+                     RMSE_P_F = c(RMSE_P_5_f, RMSE_P_10_f, RMSE_P_15_f, RMSE_P_20_f, RMSE_P_25_f, RMSE_P_30_f))
+
+
+X_10_c_1_model <- mice(X_10_c_1, method = "norm.nob", m=5)
+X_10_c_2_model <- mice(X_10_c_2, method = "norm.nob", m=5)
+X_10_c_3_model <- mice(X_10_c_3, method = "norm.nob", m=5)
+
+X_10_c_1_imp <- complete(X_10_c_1_model)
+X_10_c_2_imp <- complete(X_10_c_2_model)
+X_10_c_3_imp <- complete(X_10_c_3_model)
+
+x_10_c_imp <- rbind(X_10_c_1_imp,X_10_c_2_imp,X_10_c_3_imp)
+
+
+
+errors_c <- data.frame(MSE_c = c(mse_5_c, mse_10_c, mse_15_c, mse_20_c, mse_25_c, mse_30_c),
+                     RMSE_c = c(rmse_5_c, rmse_10_c, rmse_15_c, rmse_20_c, rmse_25_c, rmse_30_c),
+                     RMSE_P_c = c(rmse_p_5_c, rmse_p_10_c, rmse_p_15_c, rmse_p_20_c, rmse_p_25_c, rmse_p_30_c))

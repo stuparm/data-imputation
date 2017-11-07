@@ -1,4 +1,4 @@
-X = dlmread('../../dataset/diabetes/training/training20.csv');
+X = dlmread('../../dataset/diabetes/experiment/scaled-octave/X_30_scaled-octave.csv');
 n = 8;
 sse = zeros(1,n);
 
@@ -21,6 +21,6 @@ for k=1:n
 endfor
 
 plot(sse,'o-')
-axis([0 11])
+axis([0 9])
 grid
 set(gca, 'XTick', [1,2,3,4,5,6,7,8])
