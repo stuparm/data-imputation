@@ -1,4 +1,4 @@
-are <- function( full, imp, mis ) {
+are1 <- function( full, imp, mis ) {
     
   for (col in c("age","sex","bmi","blood_pressure","s1","s2","s3","s4","s5","s6")) {
 	
@@ -19,8 +19,8 @@ are <- function( full, imp, mis ) {
 	full_values <- full[ind,col]
 	
 	relative <- abs(imp_values - full_values)/(max-min)
-	n <- nrow(relative)
-	
+	n <- length(relative)
+	cat(n)
 	are <- sum(relative)/n
 	
 	cat(col,"\t\t", are, "\n")
